@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "466744596719",
+    "project_id": "education-c2a53",
+    "storage_bucket": "education-c2a53.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466744596719:android:91b45239dca384c67ba31a",
+        "android_client_info": {
+          "package_name": "com.kitapacademy.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466744596719-o5iubkndq59k48d6hih3t78p05t7r1ct.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_hL8FDb73iBMRdqxUsYz95hc2DK1W2Dg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466744596719-o5iubkndq59k48d6hih3t78p05t7r1ct.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "466744596719-v9e7jbacaptmm0r2tcvavo5hhenun7gm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kitapacademy.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
