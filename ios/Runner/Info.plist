@@ -11,17 +11,53 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>flutter_education</string>
+	<string>KitapAcademy</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.466744596719-gimr06dbrjhka3gg1taptno3u6mbofph</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string> need access to apple music to server you </string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>  need calendars access to add your events to  canedar </string>
+	<key>NSCameraUsageDescription</key>
+	<string>Need Access to camera o allow you to capture example photos of services</string>
+	<key>NSContactsUsageDescription</key>
+	<string>   need contacts access </string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string> need location access to record your attendance with your location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string> need location access to record your attendance with your location</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Need Access to microphone to allow you to record voices to example photos of services</string>
+	<key>NSMotionUsageDescription</key>
+	<string>motion </string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need Access to photo library to allow you to upload example photos of services</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>sppech recognition </string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

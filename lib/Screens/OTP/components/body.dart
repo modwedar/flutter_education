@@ -52,7 +52,8 @@ class _BodyState extends State<Body> {
                   padding: const EdgeInsets.all(30.0),
                   child: PinPut(
                     fieldsCount: 6,
-                    textStyle: const TextStyle(fontSize: 25.0, color: Colors.white),
+                    textStyle:
+                        const TextStyle(fontSize: 25.0, color: Colors.white),
                     eachFieldWidth: 40.0,
                     eachFieldHeight: 55.0,
                     focusNode: _pinPutFocusNode,
@@ -65,7 +66,8 @@ class _BodyState extends State<Body> {
                       try {
                         await FirebaseAuth.instance
                             .signInWithCredential(PhoneAuthProvider.credential(
-                            verificationId: _verificationCode, smsCode: pin))
+                                verificationId: _verificationCode,
+                                smsCode: pin))
                             .then((value) async {
                           if (value.user != null) {
                             setState(() {
@@ -96,18 +98,19 @@ class _BodyState extends State<Body> {
   void checkRegister(String pin) async {
     UserApi userApi = UserApi();
     bool registered = await userApi.checkUserIfRegistered(widget.phone, pin);
-    if(registered){
+    if (registered) {
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(builder: (context) => SubjectsScreen()),
-              (route) => false);
+          (route) => false);
     } else {
       Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => SignUpScreen(phone: widget.phone, otp: pin)),
-              (route) => false);
+          MaterialPageRoute(
+              builder: (context) =>
+                  SignUpScreen(phone: widget.phone, otp: pin)),
+          (route) => false);
     }
-
   }
 
   Widget _loading() {
@@ -136,6 +139,7 @@ class _BodyState extends State<Body> {
           });
         },
         verificationFailed: (FirebaseAuthException e) {
+          print(e);
         },
         codeSent: (String verificationID, int resendToken) {
           setState(() {

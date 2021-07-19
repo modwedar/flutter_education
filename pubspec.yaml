@@ -31,9 +31,9 @@ dependencies:
   flutter_svg: ^0.22.0
   provider: ^4.3.1
   line_awesome_flutter: ^1.0.1
-  firebase_auth: ^1.0.0
-  firebase_core: ^1.0.0
-  cloud_firestore: ^1.0.0
+  firebase_auth: ^3.0.1
+  firebase_core: ^1.4.0
+  cloud_firestore: ^2.4.0
   pinput: ^1.1.0
   country_code_picker: ^1.7.0
   shared_preferences: ^2.0.5
@@ -41,13 +41,21 @@ dependencies:
   shimmer: ^2.0.0
   flutter_pdfview: ^1.1.0
   path_provider: ^2.0.1
-  better_player: ^0.0.68
+  # better_player: ^0.0.72
+  video_player: ^2.1.10
   youtube_explode_dart: ^1.9.1
   url_launcher: ^6.0.9
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.9.0
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/images/icon.jpeg"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

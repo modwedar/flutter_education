@@ -1,7 +1,7 @@
-import 'package:better_player/better_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_education/Screens/Welcome/welcome_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:video_player/video_player.dart';
 
 class AdScreen extends StatefulWidget {
   final String url;
@@ -13,30 +13,24 @@ class AdScreen extends StatefulWidget {
 }
 
 class _AdScreenState extends State<AdScreen> {
-  BetterPlayerController _betterPlayerController;
+  VideoPlayerController _betterPlayerController;
 
   @override
   void initState() {
     super.initState();
 
-    _betterPlayerController = BetterPlayerController(
-      BetterPlayerConfiguration(
-          autoDispose: false,
-          autoPlay: true,
-          controlsConfiguration: BetterPlayerControlsConfiguration(
-              controlBarColor: Colors.transparent,
-              enablePlayPause: false,
-              showControls: false)),
-      betterPlayerDataSource: BetterPlayerDataSource(
-          BetterPlayerDataSourceType.network,
-          'https://kitapacademy.com/api/videos/download/ad.mp4'),
-    );
+    _betterPlayerController = VideoPlayerController.network(
+        'https://kitapacademy.com/api/videos/download/ad.mp4')
+      ..initialize().then((_) {
+        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+        setState(() {});
+      });
   }
 
   @override
   void dispose() {
     super.dispose();
-    _betterPlayerController.videoPlayerController.dispose();
+    _betterPlayerController.dispose();
   }
 
   @override
@@ -69,7 +63,8 @@ class _AdScreenState extends State<AdScreen> {
                   ),
                   GestureDetector(
                     onTap: () async {
-                      SharedPreferences prefs = await SharedPreferences.getInstance();
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
                       prefs.setBool('skip_ad', true);
                       Navigator.pushAndRemoveUntil(
                           context,
@@ -88,10 +83,9 @@ class _AdScreenState extends State<AdScreen> {
                         child: Text(
                           "تخطي",
                           style: TextStyle(
-                            fontFamily: 'ElMessiri',
-                            color: Colors.black54,
-                            fontSize: 14
-                          ),
+                              fontFamily: 'ElMessiri',
+                              color: Colors.black54,
+                              fontSize: 14),
                         ),
                       ),
                     ),
@@ -102,8 +96,8 @@ class _AdScreenState extends State<AdScreen> {
             Center(
               child: AspectRatio(
                 aspectRatio: 16 / 9,
-                child: BetterPlayer(
-                  controller: _betterPlayerController,
+                child: VideoPlayer(
+                  _betterPlayerController,
                 ),
               ),
             )
