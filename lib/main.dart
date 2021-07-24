@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
           appBarTheme: AppBarTheme(color: Colors.white, elevation: 0),
         ),
-        home: isSkip? WelcomeScreen() : AdScreen(),
+        home: WelcomeScreen(),
       ),
     );
   }
