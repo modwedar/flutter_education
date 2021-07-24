@@ -12,19 +12,13 @@ import 'components/ad_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  var isSkip = prefs.getBool('skip_ad');
-  runApp(MyApp(isSkip));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  var isSkip;
-  MyApp(this.isSkip);
+  MyApp();
   @override
   Widget build(BuildContext context) {
-    if(isSkip == null){
-      isSkip = false;
-    }
     return ChangeNotifierProvider(
       create: (context) => NavItems(),
       child: MaterialApp(
