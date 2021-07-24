@@ -94,20 +94,24 @@ class _BodyState extends State<Body> {
   }
 
   void checkRegister(String pin) async {
-    UserApi userApi = UserApi();
-    bool registered = await userApi.checkUserIfRegistered(widget.phone, pin);
-    if(registered){
-      Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => SubjectsScreen()),
-              (route) => false);
-    } else {
-      Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => SignUpScreen(phone: widget.phone, otp: pin)),
-              (route) => false);
-    }
+    try{
+      UserApi userApi = UserApi();
+      bool registered = await userApi.checkUserIfRegistered(widget.phone, pin);
+      if(registered){
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => SubjectsScreen()),
+                (route) => false);
+      } else {
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => SignUpScreen(phone: widget.phone, otp: pin)),
+                (route) => false);
+      }
 
+    } catch(e){
+      print(e);
+    }
   }
 
   Widget _loading() {
@@ -123,17 +127,21 @@ class _BodyState extends State<Body> {
     await FirebaseAuth.instance.verifyPhoneNumber(
         phoneNumber: widget.phone,
         verificationCompleted: (PhoneAuthCredential credential) async {
-          String pin = credential.smsCode;
-          await FirebaseAuth.instance
-              .signInWithCredential(credential)
-              .then((value) async {
-            if (value.user != null) {
-              setState(() {
-                _loadingVisibility = true;
-              });
-              checkRegister(pin);
-            }
-          });
+          try{
+            String pin = credential.smsCode;
+            await FirebaseAuth.instance
+                .signInWithCredential(credential)
+                .then((value) async {
+              if (value.user != null) {
+                setState(() {
+                  _loadingVisibility = true;
+                });
+                checkRegister(pin);
+              }
+            });
+          } catch(e){
+            print(e);
+          }
         },
         verificationFailed: (FirebaseAuthException e) {
         },
