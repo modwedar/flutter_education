@@ -268,7 +268,6 @@ class _BodyState extends State<Body> {
                 .signInWithCredential(credential)
                 .then((value) async {
               if (value.user != null) {
-                print('hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee');
                 checkRegister(pin);
               }
             });
