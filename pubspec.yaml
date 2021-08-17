@@ -34,7 +34,7 @@ dependencies:
   firebase_auth: ^1.0.0
   firebase_core: ^1.0.0
   cloud_firestore: ^1.0.0
-  pinput: ^1.1.0
+  pin_code_fields: ^7.3.0
   country_code_picker: ^1.7.0
   shared_preferences: ^2.0.5
   http: ^0.13.3

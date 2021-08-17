@@ -25,7 +25,6 @@ class UserApi {
       var jsonData = jsonDecode(response.body);
       var data = jsonData["data"];
       if(data != null ){
-        log(data.toString());
         Student student = Student.fromJson(data);
         student.otp = otp;
         _registerStudent.changeOtp(student);
